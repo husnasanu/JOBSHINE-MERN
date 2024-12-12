@@ -7,19 +7,19 @@ import Header from '../components/Header'
 const Home = () => {
   return (
     <>
-   <Header/>
+   <Header insideHome={true} />
    <div className="container shadow my-4 py-4 d-flex">
       <div className="col-6">
         <img className='w-100' height={'500px'} src="https://www.pngall.com/wp-content/uploads/15/Login-PNG-HD-Image.png" alt="" />
       </div>
       <div className="col-6">
         <h1 style={{paddingTop:"100px",fontSize:'70px'}}>Create an account and <span id='account' className='text-center text-danger'>find the right job</span>for you.</h1>
-        <Link to={"/login"} className='fw-bolder fst-italic ' style={{fontSize:'40px',color:'chocolate'}}>Get Started</Link>
+        <Link to={"/login"} className='fw-bolder fst-italic ' style={{fontSize:'30px',color:'red'}}>Get Started</Link>
       </div>
     </div>
     <div className='container w-100 d-flex my-5'>
 <div className="main col-6 shadow px-4">
-      <h3 className=" text-warning mb-3 " data-aos="fade-up">Welcome to <span className='job fst-italic '> JobShine</span></h3>
+      <h3 className=" text-warning mb-3 " data-aos="fade-up">Welcome to <span className='job fst-italic texh-danger '>Hire_Connect</span></h3>
       <p  className='mt-5'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, optio exercitationem. Repellendus optio voluptatum labore commodi numquam? Error quo reiciendis aliquam iure cumque, exercitationem ut repellat, ipsam, corrupti fugit accusamus?</p>
       <h3 className='text-success'>Why Choose Us </h3>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, optio exercitationem. Repellendus optio voluptatum labore commodi numquam? Error quo reiciendis aliquam iure cumque, exercitationem ut repellat, ipsam, corrupti fugit accusamus?</p>
@@ -32,17 +32,43 @@ const Home = () => {
     </div>
    
     <div className="container my-4 py-4 shadow">
-      <h3 className='text-success text-center fst-italic my-4'>Our Services</h3>
-      <div className='row d-flex justify-content-evenly' >
+      <h3 className='text-success text-center fst-italic my-4'>Our Testimonials</h3>
+      <div style={{textAlign:'justify'}} className='row d-flex justify-content-evenly' >
       <Card style={{ width: '18rem' }}>
-      <img src="https://png.pngtree.com/template/20190904/ourmid/pngtree-we-are-hiring-sticker-isolated-02-image_297026.jpg" alt="" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmbUuWihp-5UzW1IcdPsb5C1lsGzjExUgwkQ&s" alt="" />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
+        <Card.Title>Python Developer</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+        Thank you for your support and guidance throughout the recruitment process. Your efforts played a significant role in helping me secure
+         this placement, and I’m truly grateful for the opportunity.
+         <h6>⭐⭐⭐⭐</h6>
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        
+      </Card.Body>
+    </Card>
+    <Card style={{ width: '18rem' }}>
+     
+      <img src="https://icons.veryicon.com/png/o/internet--web/web-interface-flat/6606-male-user.png" alt="" />
+      <Card.Body>
+        <Card.Title>Software Engineer</Card.Title>
+        <Card.Text>
+        I would like to express my sincere thanks to your team for your professionalism and assistance during my recruitment journey. Your expertise has been invaluable, 
+        and I’m excited to begin this new chapter in my career!
+        <h6>⭐⭐⭐⭐</h6>
+        </Card.Text>
+        
+      </Card.Body>
+    </Card>
+    <Card style={{ width: '18rem' }}>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG1dXcbGQTvqLXLBEQnr3S2ta1flJNUUc6kw&s" alt="" />
+      <Card.Body>
+        <Card.Title>Digital Marketing</Card.Title>
+        <Card.Text>
+        A huge thank you to Hire_Connect for believing in me and helping me land my dream job! I truly appreciate all your efforts, 
+        and I’m thrilled to start this new chapter.
+        <h6>⭐⭐⭐⭐⭐</h6>
+        </Card.Text>
+       
       </Card.Body>
     </Card>
       </div>

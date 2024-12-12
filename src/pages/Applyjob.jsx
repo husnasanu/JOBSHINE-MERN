@@ -91,11 +91,13 @@ const Applyjob = () => {
       alert("Please fill out the form completely.");
     }
   }
-
+const logout = ()=>{
+  navigate('/user-job-view')
+}
 
   return (
     <div style={{ maxWidth: '600px' }} className="container">
-      <h1 className="text-center">Job Application Form</h1>
+      <h1 className="text-center mt-3"> <button onClick={logout} className=' btn btn-info me-5 ' > <i className="fa-solid fa-arrow-left"></i> </button>  Job Application Form</h1>
       <form>
         <input
           type="text"

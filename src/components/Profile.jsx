@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { React, useEffect, useState } from 'react'
 import { Collapse } from 'react-bootstrap'
 import serverURL from '../Services/serverURL'
 import profileimg from '../assets/profile1.png'
+import { editUserAPI } from '../Services/allAPI'
+
 const Profile = () => { 
     const [preview,setPreview] = useState("")
     const [existingUserImg,setExistingUserImg] = useState("")
@@ -48,6 +50,7 @@ const Profile = () => {
               if(result.status==200){
                 sessionStorage.setItem("user",JSON.stringify(result.data))
                 setOpen(!open)
+                alert("Profile Updated Successfully!!✅")
               }else{
                 console.log(result);
                 
@@ -82,6 +85,12 @@ const Profile = () => {
           }
 
           </label>
+          <div className="mb-2">
+          
+          </div>
+          <div className="mb-2">
+            <input onChange={e=>setUserData({...userData,phno:e.target.value})} value={userData.email} type="text" placeholder='EMAIL' className='form-control' readOnly />
+          </div>
           <div className="mb-2">
             <input onChange={e=>setUserData({...userData,phno:e.target.value})} value={userData.phno} type="text" placeholder='PHONE NUMBER' className='form-control'/>
           </div>

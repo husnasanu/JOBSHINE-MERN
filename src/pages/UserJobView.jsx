@@ -1,6 +1,9 @@
+
+// users view the Admin added jobs in userhome******************************
+
 import React, { useEffect, useState } from 'react'
 import { Button, Card } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { getAllJobsAPI } from '../Services/allAPI'
 
 const UserJobView = () => {
@@ -45,9 +48,13 @@ const UserJobView = () => {
     Navigate('/applicationForm', { state: { title, cName } });
   };
 
+  const logout = ()=>{
+    Navigate('/userhome')
+  }
+
   return (
     <div className='container'>
-      <h2 className='text-primary text-center my-5 fst-italic'> Job Vaccancy List</h2>
+      <h2 className='text-primary text-center my-5 fst-italic'>  <button onClick={logout} className='custom-btn btn btn-info me-5 ' > <i className="fa-solid fa-arrow-left"></i> </button> Job Vaccancy List</h2>
 <div className="  d-flex flex-column align-items-center  gap-4">
 
       
@@ -64,7 +71,7 @@ const UserJobView = () => {
         <div>
          <h6 className='text-dark'><b  className='me-3'>Qualification:</b> {allJobs?.qualification}</h6>
         <h6 className='text-dark'><b  className='me-3'>Experience :</b> {allJobs?.experience}</h6>
-        <h6 className='text-dark'><b  className='me-3'>Last Date Of Application:</b>{allJobs?.lDate}</h6>
+        <h6 className='text-dark'><b  className='me-3'>Last Date Of Application:</b>{new Date(allJobs.lDate).toLocaleDateString("en-CA")}</h6>
          </div>
          
          <Button

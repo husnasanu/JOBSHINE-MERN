@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import './bootstrap.min.css';
-import {  Route, Routes } from "react-router-dom";
+import './bootstrap.min.css'; 
+import {  Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Register from "./pages/Register"
 import Login from "./pages/Login"
@@ -12,15 +12,17 @@ import Userhome from "./pages/Userhome";
 import Dashboard from "./pages/Dashboard";
 import Userview from "./pages/Userview";
 import Applyjob from "./pages/Applyjob";
-import Profile from "./pages/Profile";
 import UserJobView from "./pages/UserJobView";
-function App() {
+import StatusView from "./pages/StatusView";
+import { tokenAuthContext } from "./contexts/AuthContext";
+function App() { 
   useEffect(() => {
     AOS.init({
       duration: 1000, 
       offset: 120,      
     });
   }, []);
+  const {isAuthorised,setIsAuthorised} = useContext(tokenAuthContext)
 
   return (
     <Routes>
@@ -29,13 +31,12 @@ function App() {
       <Route path="/login" element={<Login/>} />
       <Route path="/about" element={<About/>} />
       <Route path="/contact" element={<Contact/>} />
-      <Route path="/userhome" element={<Userhome/>} />
-      <Route path="/dashboard" element={<Dashboard/>} />
-      <Route path="/userview" element={<Userview/>} />
-      <Route path="/applicationForm" element={<Applyjob/>} />
-      <Route path="/profile" element={<Profile/>} />
-      <Route path="/user-job-view" element={<UserJobView/>} />
-
+      <Route path="/userhome" element={isAuthorised ? <Userhome/> : <Navigate to={'/login'}/> } />
+      <Route path="/dashboard" element={isAuthorised ?<Dashboard/> : <Navigate to={'/login'}/> } />
+      <Route path="/userview" element={isAuthorised ? <Userview/> : <Navigate to={'/login'}/>  }/>
+      <Route path="/applicationForm" element={isAuthorised ? <Applyjob/>: <Navigate to={'/login'}/> }/>
+      <Route path="/user-job-view" element={isAuthorised ? <UserJobView/> : <Navigate to={'/login'}/> } />
+      <Route path="/statusView" element={isAuthorised ? <StatusView/> : <Navigate to={'/login'}/> } />
     </Routes>
   );
 }

@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react'
+   
+   // Admin View the Application in Dashboard**********************
+
+import React, { useContext, useEffect, useState } from 'react'
 import { allApplcationAPI } from '../Services/allAPI';
 import { Link } from 'react-router-dom';
+import Edit from '../components/Edit_Status';
+import { editResponseContext } from '../contexts/ContextShare';
 
 const Userview = () => { 
-  
+  const {editResponse,setEditResponse} = useContext(editResponseContext)
   const [allApplications,setAllApplications]=useState([])
   useEffect(() => {
-    // if (token) getAdminAddJobs();
     getAllApplications()
-  }, []);
+  }, [editResponse]);
   console.log(allApplications);
 
   const getAllApplications = async()=>{
@@ -62,7 +66,7 @@ const Userview = () => {
           <th className="text-center">CUR_CTC</th>
           <th className="text-center">EXP_CTC</th>
           <th className="text-center">Skills</th>
-          <th className="text-center">Resume</th>
+          <th className="text-center">Status</th>
         </tr>
       </thead>
       <tbody>
@@ -82,13 +86,16 @@ const Userview = () => {
                 <td className="text-center">{application.currCTC}</td>
                 <td className="text-center">{application.expCTC}</td>
                 <td className="text-start p-2">{application.skills}</td>
-                <td className="text-center">
+                <td className="text-start p-2">{application.status} 
+                  <Edit jobId={application._id} currentStatus={application.status}/>
+                </td>
+                {/* <td className="text-center">
                   <a href={application.resume} target="_blank" rel="noopener noreferrer" className="btn btn-link btn-sm">
                     View
                   </a>
-                </td>
+                </td> */}
               </tr>
-              <tr>
+              {/* <tr>
                 <td colSpan="13" className="text-center p-3">
                   <div className="d-flex justify-content-center gap-3">
                     <button className="btn btn-success ">Send Call Letter</button>
@@ -98,7 +105,7 @@ const Userview = () => {
                     </button>
                   </div>
                 </td>
-              </tr>
+              </tr> */}
             </>
           ))
         ) : (

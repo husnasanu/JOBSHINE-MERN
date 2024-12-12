@@ -9,9 +9,9 @@ const Footer = () => {
             <div className="row pt-2">
                 <div className="col-md-4">
                     <h5 className="fw-bold">
-                        <span className="me-2"></span> JobShine
+                        <span className="me-2"></span> Hire_Connect
                     </h5>
-                    <p>Designed and built with all the love in the world by the Luminar team with the help of our contributors.</p>
+                    <p>Designed and built with all the love in the world by the  <span className='text-warning fst-italic'>Husna</span></p>
                     <p>Code licensed Luminar, docs CC BY 3.0.</p>
                     <p>Currently v5.3.2.</p>
                 </div>
@@ -49,7 +49,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="text-center my-3 pb-2">
-                <p>&copy; Jan 2024 Batch, JobShine. Built with React.</p>
+                <p>&copy; May 2024 Batch, Hire_Connect. Built with React.</p>
             </div>
         </div>
     </footer>

@@ -54,5 +54,23 @@ export const deleteApplicationAPI = async (jid,reqHeader)=>{
 export const allApplcationAPI = async (reqHeader)=>{
     return await commonAPI("GET",`${serverURL}/userview`,"",reqHeader)
 }
+// editUserAPI called by Profile : put request http://localhost:3000/user/edit
+export const editUserAPI = async (reqBody,reqHeader)=>{
+    return await commonAPI("PUT",`${serverURL}/user/edit`,reqBody,reqHeader)
+}
 
-   
+//    applyjob API 
+export const getProfileAPI = async(reqHeader)=>{
+    return await commonAPI("GET",`${serverURL}/get-user-profile`,"",reqHeader)
+}
+
+   //update task
+export const editStatusAPI = async (jid,reqBody,reqHeader)=>{
+    return await commonAPI("PUT",`${serverURL}/${jid}/edit-status`,reqBody,reqHeader)
+}
+export const allApplicationAPI = async (reqHeader) => {
+    return await commonAPI("GET", `${serverURL}/applications`, "", reqHeader);
+  };
+  export const statusViewAPI = async (reqHeader) => {
+    return await commonAPI("GET", `${serverURL}/statusView`, "", reqHeader);
+  };
