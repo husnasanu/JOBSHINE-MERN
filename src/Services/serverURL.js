@@ -1,4 +1,4 @@
- const serverURL = "https://jobserver-jobshine-mern-1.onrender.com"
+ const serverURL = "http://localhost:3000"
 
 export default serverURL
 

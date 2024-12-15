@@ -89,7 +89,7 @@ const StatusView = () => {
                 </div>
             </div>
 
-            <div style={{ textAlign: 'justify' }} className="row w-100">
+            <div style={{ textAlign: 'justify' }} className="container">
                 <h5 className='mt-4'>
                     <button className='btn'>
                         <Link to="/userhome" className="text-dark text-decoration-none fs-5">
@@ -103,9 +103,9 @@ const StatusView = () => {
                 <div>
                     {approvedApplications.length > 0 ? (
                         paginate(approvedApplications).map((application, index) => (
-                            <Card className='mt-3 ' key={index} style={{ maxWidth: '100vh', marginLeft: '400px' }}>
+                            <Card className='mt-3 mx-auto' key={index} style={{ maxWidth: '100%' }}>
                                 <Card.Body>
-                                    <Card.Text  className='text-dark'>
+                                    <Card.Text className='text-dark'>
                                         <h5 className='text-success'>{application.title} at {application.cName}</h5>
                                         Dear {application.Name}, <br />
                                         Thank you for applying for this position.
@@ -127,7 +127,7 @@ const StatusView = () => {
                 <div>
                     {rejectedApplications.length > 0 ? (
                         paginate(rejectedApplications).map((application, index) => (
-                            <Card className='mt-3 ' key={index} style={{ maxWidth: '100vh', marginLeft: '400px' }}>
+                            <Card className='mt-3 mx-auto' key={index} style={{ maxWidth: '100%' }}>
                                 <Card.Body>
                                     <Card.Text className='text-dark'>
                                         <h5 className='text-danger'>{application.title} at {application.cName}</h5>
@@ -139,7 +139,7 @@ const StatusView = () => {
                             </Card>
                         ))
                     ) : (
-                        <p  className='text-center'>No rejected applications available.</p>
+                        <p className='text-center'>No rejected applications available.</p>
                     )}
                     {renderPaginationButtons(rejectedApplications)}
                 </div>
