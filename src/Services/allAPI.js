@@ -74,3 +74,12 @@ export const allApplicationAPI = async (reqHeader) => {
   export const statusViewAPI = async (reqHeader) => {
     return await commonAPI("GET", `${serverURL}/statusView`, "", reqHeader);
   };
+
+//    applyjob API 
+export const getUserAPI = async(reqHeader)=>{
+    return await commonAPI("GET",`${serverURL}/userViewByAdmin`,"",reqHeader)
+}
+// removeProjectsAPI called by dashbard 
+export const deleteUserAPI = async (jid,reqHeader)=>{
+    return await commonAPI("DELETE",`${serverURL}/${jid}/remove-user`,{},reqHeader)
+}

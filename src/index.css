@@ -7,6 +7,11 @@
   font-family: "Montserrat", sans-serif;
  color:blue;
 }
+p{
+  text-align: justify;
+ font-weight: 700;
+ font-style: oblique;
+}
 .job:hover{
   color:darkmagenta;
   font-family: "Archivo Black", sans-serif;

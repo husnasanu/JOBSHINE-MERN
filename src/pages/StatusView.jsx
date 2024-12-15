@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom';
 const StatusView = () => {
     const { editResponse, setEditResponse } = useContext(editResponseContext);
     const [allApplications, setAllApplications] = useState([]);
-   
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 1;
+
     useEffect(() => {
         getApplicationStatus();
     }, [editResponse]);
@@ -31,7 +33,40 @@ const StatusView = () => {
             }
         }
     };
-    
+
+    const approvedApplications = allApplications.filter(application => application.status === "Approved");
+    const rejectedApplications = allApplications.filter(application => application.status === "Rejected");
+
+    const paginate = (applications) => {
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        return applications.slice(startIndex, startIndex + itemsPerPage);
+    };
+
+    const handleNextPage = () => setCurrentPage(prevPage => prevPage + 1);
+    const handlePreviousPage = () => setCurrentPage(prevPage => (prevPage > 1 ? prevPage - 1 : 1));
+
+    const totalPages = (applications) => Math.ceil(applications.length / itemsPerPage);
+
+    const renderPaginationButtons = (applications) => {
+        const total = totalPages(applications);
+        return (
+            <div className="pagination d-flex justify-content-center mt-4">
+                <button 
+                    onClick={handlePreviousPage} 
+                    className="btn btn-outline-primary mx-2" 
+                    disabled={currentPage === 1}>
+                    Previous
+                </button>
+                <button 
+                    onClick={handleNextPage} 
+                    className="btn btn-outline-primary mx-2" 
+                    disabled={currentPage === total}>
+                    Next
+                </button>
+            </div>
+        );
+    };
+
     return (
         <div>
             <div className="px-3 d-flex justify-content-between align-items-center shadow">
@@ -42,7 +77,7 @@ const StatusView = () => {
                 </div>
                 <div className="d-flex">
                     <h6 className="ms-4">
-                        <Link to="/user-job-view" className="text-dark text-decoration-none fs-5">
+                        <Link to="/user-job-view" className="text-dark text-decoration-none fs-5"> 
                             Jobs <i className="fa-solid fa-graduation-cap"></i>
                         </Link>
                     </h6>
@@ -54,7 +89,7 @@ const StatusView = () => {
                 </div>
             </div>
 
-            <div style={{ textAlign: 'justify' }} className="row container">
+            <div style={{ textAlign: 'justify' }} className="row w-100">
                 <h5 className='mt-4'>
                     <button className='btn'>
                         <Link to="/userhome" className="text-dark text-decoration-none fs-5">
@@ -64,64 +99,49 @@ const StatusView = () => {
                     Your next big opportunity is just one application away !!!
                 </h5>
 
+                <h2 className='mt-4 text-success fw-bolder'>APPROVED APPLICATIONS</h2>
                 <div>
-                    {allApplications?.length > 0 ? (
-                        allApplications.map((application, index) => (
-                            <div key={index}>
-                                {application.status === "Approved" ? (
-                                    <Card className='mt-5 shadow' style={{ maxWidth: '100vh', marginLeft: '400px' }}>
-                                        <Card.Body>
-                                            <Card.Text>
-                                                <div className="Card approve">
-                                                    <p>
-                                                        <h6 className='text-success'>{application.title} at {application.cName}</h6>
-                                                        Dear {application.Name},
-                                                        Thank you for applying for this position.
-                                                        We are pleased to inform you that your application has been successfully received. 
-                                                        Thank you for your interest in joining {application.cName}.
-                                                        <br />
-                                                        Best Regards,
-                                                        HR Department
-                                                        <br />
-                                                        Hire_Connect
-                                                    </p>      
-                                                </div>
-                                            </Card.Text>
-                                        </Card.Body>
-                                    </Card>
-                                ) : application.status === "Rejected" ? (
-                                    <Card className='mt-5 shadow' style={{ maxWidth: '100vh', marginLeft: '400px' }}>
-                                        <Card.Body>
-                                            <Card.Text>
-                                                <div className="reject">
-                                                    <p>
-                                                        <h6 className='text-danger'>{application.title} at {application.cName}</h6>
-                                                        Dear {application.Name},
-                                                        Thank you for applying for this position. We regret to inform you that we have chosen to move forward with other candidates at this time. 
-                                                        <br />
-                                                        Best Regards,
-                                                        HR Department
-                                                        <br />
-                                                        Hire_Connect
-                                                    </p>
-                                                </div>
-                                            </Card.Text>
-                                        </Card.Body>
-                                    </Card>
-                                ) : null}
-                            </div>
+                    {approvedApplications.length > 0 ? (
+                        paginate(approvedApplications).map((application, index) => (
+                            <Card className='mt-3 ' key={index} style={{ maxWidth: '100vh', marginLeft: '400px' }}>
+                                <Card.Body>
+                                    <Card.Text  className='text-dark'>
+                                        <h5 className='text-success'>{application.title} at {application.cName}</h5>
+                                        Dear {application.Name}, <br />
+                                        Thank you for applying for this position.
+                                        <span className='display text-dark'>We are pleased to inform you that your application has been successfully received. 
+                                        Thank you for your interest in joining {application.cName}. <br className='mt-3' /></span>
+                                        Best Regards From Hire_Connect <br />
+                                        HR Department
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
                         ))
                     ) : (
-                        <div style={{ marginLeft: '300px' }}> 
-                            <img 
-                                className='m-5' 
-                                width={'300px'} 
-                                height={'300px'} 
-                                src="https://img.freepik.com/premium-vector/no-data-found-illustration-sites-banner-design-vector-illustration_620585-1690.jpg?semt=ais_hybrid" 
-                                alt="No data found" 
-                            />
-                        </div>
+                        <p className='text-center'>No approved applications available.</p>
                     )}
+                    {renderPaginationButtons(approvedApplications)}
+                </div>
+
+                <h2 className='mt-5 text-danger fw-bolder'>REJECTED APPLICATIONS</h2>
+                <div>
+                    {rejectedApplications.length > 0 ? (
+                        paginate(rejectedApplications).map((application, index) => (
+                            <Card className='mt-3 ' key={index} style={{ maxWidth: '100vh', marginLeft: '400px' }}>
+                                <Card.Body>
+                                    <Card.Text className='text-dark'>
+                                        <h5 className='text-danger'>{application.title} at {application.cName}</h5>
+                                        Dear {application.Name}, <br /> <span className='display text-dark'> We regret to inform you that</span> we have chosen to move forward with other candidates.
+                                     <br />   Best Regards From Hire_Connect <br  className='mt-3' />
+                                        HR Department
+                                    </Card.Text>
+                                </Card.Body>
+                            </Card>
+                        ))
+                    ) : (
+                        <p  className='text-center'>No rejected applications available.</p>
+                    )}
+                    {renderPaginationButtons(rejectedApplications)}
                 </div>
             </div>
         </div>

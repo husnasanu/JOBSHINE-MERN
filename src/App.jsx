@@ -15,6 +15,7 @@ import Applyjob from "./pages/Applyjob";
 import UserJobView from "./pages/UserJobView";
 import StatusView from "./pages/StatusView";
 import { tokenAuthContext } from "./contexts/AuthContext";
+import UsersList from "./pages/UsersList";
 function App() { 
   useEffect(() => {
     AOS.init({
@@ -37,6 +38,7 @@ function App() {
       <Route path="/applicationForm" element={isAuthorised ? <Applyjob/>: <Navigate to={'/login'}/> }/>
       <Route path="/user-job-view" element={isAuthorised ? <UserJobView/> : <Navigate to={'/login'}/> } />
       <Route path="/statusView" element={isAuthorised ? <StatusView/> : <Navigate to={'/login'}/> } />
+      <Route path="/userViewByAdmin" element={<UsersList/>} />
     </Routes>
   );
 }

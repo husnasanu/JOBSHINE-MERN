@@ -27,29 +27,29 @@ const Contact = () => {
             <div className="info-items">
             
               <div className="info-item d-flex align-items-start mb-4">
-                <i className="fas fa-map-marker-alt contact-icon fs-1"></i>
+                <i className="fas fa-map-marker-alt contact-icon fs-5  text-danger"></i>
                 <div className="ms-3">
                   <h3 className="info-title">ADDRESS</h3>
-                  <p className="info-text">JobShine, SRT Road, XX1 B, CO 80202, Kerala, Chennai, Hyderabad</p>
+                  <p className="text-dark">JobShine, SRT Road, XX1 B, CO 80202, Kerala, Chennai, Hyderabad</p>
                 </div>
               </div>
 
              
               <div className="info-item d-flex align-items-start mb-4">
-                <i className="fas fa-phone-alt contact-icon fs-1"></i>
+                <i className="fas fa-phone-alt contact-icon fs-5 text-danger"></i>
                 <div className="ms-3">
                   <h3 className="info-title">PHONE</h3>
-                  <p className="info-text">+1 555 123 0067</p>
+                  <p className="text-dark">+1 555 123 0067</p>
                 </div>
               </div>
 
              
               <div className="info-item d-flex align-items-start mb-4">
-                <i className="fas fa-envelope contact-icon fs-1"></i>
+                <i className="fas fa-envelope contact-icon fs-5  text-danger"></i>
                 <div className="ms-3">
                   <h3 className="info-title">EMAIL</h3>
-                  <p className="info-text">hirehonnect@gmail.com</p>
-                  <p className="info-text">
+                  <p className="text-dark">hirehonnect@gmail.com</p>
+                  <p className="text-dark">
                     OFFICIAL WEBSITE: 
                     <a href="http://localhost:5173/" target="_blank" rel="noopener noreferrer" className="website-link"> http://hire_connect.com</a>
                   </p>

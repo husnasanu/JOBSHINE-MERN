@@ -18,13 +18,14 @@ const Home = () => {
       </div>
     </div>
     <div className='container w-100 d-flex my-5'>
-<div className="main col-6 shadow px-4">
-      <h3 className=" text-warning mb-3 " data-aos="fade-up">Welcome to <span className='job fst-italic texh-danger '>Hire_Connect</span></h3>
-      <p  className='mt-5'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, optio exercitationem. Repellendus optio voluptatum labore commodi numquam? Error quo reiciendis aliquam iure cumque, exercitationem ut repellat, ipsam, corrupti fugit accusamus?</p>
+<div style={{}} className="main col-6 shadow px-4 fw-bolder">
+      <h3 className=" text-warning mb-3 pt-5 " data-aos="fade-up">Welcome to <span className='job fst-italic texh-danger '>Hire_Connect</span></h3>
+      <p  className='mt-5 text-dark'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, optio exercitationem. Repellendus optio voluptatum labore commodi numquam? Error quo reiciendis aliquam iure cumque, exercitationem ut repellat, ipsam, corrupti fugit accusamus?</p>
       <h3 className='text-success'>Why Choose Us </h3>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, optio exercitationem. Repellendus optio voluptatum labore commodi numquam? Error quo reiciendis aliquam iure cumque, exercitationem ut repellat, ipsam, corrupti fugit accusamus?</p>
-
-     
+      <p className='text-dark'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, optio exercitationem. Repellendus optio voluptatum labore commodi numquam? Error quo reiciendis aliquam iure cumque, exercitationem ut repellat, ipsam, corrupti fugit accusamus?</p>
+        <div className='d-flex '> 
+           
+        </div>
     </div>
     <div className="main col-6 shadow ">
       <img className='w-100 ' src="https://5.imimg.com/data5/SELLER/Default/2022/3/QJ/TU/UX/11444717/1-500x500.jpg" alt="" />
@@ -38,10 +39,11 @@ const Home = () => {
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmbUuWihp-5UzW1IcdPsb5C1lsGzjExUgwkQ&s" alt="" />
       <Card.Body>
         <Card.Title>Python Developer</Card.Title>
+        <h6>⭐⭐⭐⭐</h6>
         <Card.Text>
         Thank you for your support and guidance throughout the recruitment process. Your efforts played a significant role in helping me secure
          this placement, and I’m truly grateful for the opportunity.
-         <h6>⭐⭐⭐⭐</h6>
+         
         </Card.Text>
         
       </Card.Body>
@@ -51,10 +53,11 @@ const Home = () => {
       <img src="https://icons.veryicon.com/png/o/internet--web/web-interface-flat/6606-male-user.png" alt="" />
       <Card.Body>
         <Card.Title>Software Engineer</Card.Title>
+        <h6>⭐⭐⭐⭐</h6>
         <Card.Text>
         I would like to express my sincere thanks to your team for your professionalism and assistance during my recruitment journey. Your expertise has been invaluable, 
         and I’m excited to begin this new chapter in my career!
-        <h6>⭐⭐⭐⭐</h6>
+       
         </Card.Text>
         
       </Card.Body>
@@ -63,12 +66,11 @@ const Home = () => {
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG1dXcbGQTvqLXLBEQnr3S2ta1flJNUUc6kw&s" alt="" />
       <Card.Body>
         <Card.Title>Digital Marketing</Card.Title>
+        <h6>⭐⭐⭐⭐⭐</h6> 
         <Card.Text>
         A huge thank you to Hire_Connect for believing in me and helping me land my dream job! I truly appreciate all your efforts, 
         and I’m thrilled to start this new chapter.
-        <h6>⭐⭐⭐⭐⭐</h6>
         </Card.Text>
-       
       </Card.Body>
     </Card>
       </div>

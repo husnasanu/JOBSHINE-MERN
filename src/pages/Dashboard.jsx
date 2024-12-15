@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { addJobAPI, deleteJobAPI, editJobAPI, getAdminJobAPI } from '../Services/allAPI';
 
 
+
 const Dashboard = () => {
   
   const [adminAddJobs, setAdminAddJobs] = useState([]);
@@ -159,10 +160,13 @@ const Dashboard = () => {
         <div className="col-6 pt-4">
           <h3>
            <div className='d-flex'>
-           <Link to={'/userview'} style={{ paddingLeft: "400px" }} className="fst-italic text-primary">
+           <Link to={'/userViewByAdmin'} style={{ paddingLeft: "350px" }} className="fst-italic text-primary">
+           <i class="fa-solid fa-user-large me-5"></i>
+            </Link>
+           <Link to={'/userview'}  className="fst-italic text-primary">
             <i class="fa-solid fa-file-lines me-5"></i> 
             </Link>
-            <Link to={'/'}>Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></Link>
+            <Link to={'/'}> <i class="fa-solid fa-arrow-right-from-bracket"></i></Link>
            </div>
           </h3>
         </div>
@@ -210,7 +214,7 @@ const Dashboard = () => {
           )}
         </tbody>
       </table>
-      {/* <ViewApplications/>  */}
+      
     </div>
   );
 };

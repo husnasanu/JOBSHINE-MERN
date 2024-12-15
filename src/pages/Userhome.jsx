@@ -129,14 +129,14 @@ if(sessionStorage.getItem("user")){
              
                 userApplyJob?.length>0 ? 
                 userApplyJob?.map(appliedJob=>(
-                  <tr key={appliedJob?._id}  className='p-5 '>
-                  <td  className='ms-5 text-dark'> {appliedJob?.Name} </td>
+                  <tr key={appliedJob?._id}  className='p-5 shadow'>
+                  <td  className='ms-5 ps-3 text-dark'> {appliedJob?.Name} </td>
                   <td  className='ms-5 ps-3 text-dark'> {appliedJob?.cName}</td>
-                  <td  className='ms-5 text-dark'>{appliedJob?.title}</td>
-                  <td  className='ms-5 text-dark'>{appliedJob?.qualification} with {appliedJob?.cgpa} %</td>
-                  <td  className='ms-5 text-dark'>{appliedJob?.currRole}</td>
-                  <td  className='ms-5 text-dark'>{appliedJob?.expCTC}</td>
-                  <td  className='ms-5 text-dark'>{appliedJob?.skills}</td>
+                  <td  className='ms-5 ps-3 text-dark'>{appliedJob?.title}</td>
+                  <td  className='ms-5 ps-3  text-dark'>{appliedJob?.qualification} with {appliedJob?.cgpa} %</td>
+                  <td  className='ms-5 ps-3 text-dark'>{appliedJob?.currRole}</td>
+                  <td  className='ms-5 ps-3 text-dark'>{appliedJob?.expCTC}</td>
+                  <td  className='ms-5 ps-3 text-dark'>{appliedJob?.skills}</td>
                  
                   <td><button onClick={()=>deleteApplication(appliedJob?._id)}  className='btn'><i class="fa-solid fa-trash text-danger"></i></button></td>
                 </tr>
